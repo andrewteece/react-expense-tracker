@@ -3,7 +3,7 @@ import ExpenseList from './components/ExpenseList';
 
 function App() {
   return (
-    <div>
+    <div className='tracker'>
       <h1>React Expense Tracker</h1>
       <ExpenseForm />
       <ExpenseList />
