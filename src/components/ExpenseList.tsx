@@ -1,5 +1,5 @@
 function ExpenseList(props) {
-  console.log(props);
+  if (props.expenses.length === 0) return <p>No Expenses yet.</p>;
 
   return (
     <ul className='expense-list'>
