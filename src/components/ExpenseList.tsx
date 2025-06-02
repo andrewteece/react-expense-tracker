@@ -3,7 +3,7 @@ function ExpenseList(props) {
   return (
     <ul className='expense-list'>
       {props.expenses.map((expense) => {
-        <li key={expense.id} className='expense-item'>
+        ;<li key={expense.id} className='expense-item'>
           <div>
             <h3>{expense.title}</h3>
             <p>
@@ -11,10 +11,10 @@ function ExpenseList(props) {
             </p>
           </div>
           <button>🗑️</button>
-        </li>;
+        </li>
       })}
     </ul>
-  );
+  )
 }
 
-export default ExpenseList;
+export default ExpenseList
