@@ -1,9 +1,9 @@
-function ExpenseList(props) {
-  if (props.expenses.length === 0) return <p>No Expenses yet.</p>;
+function ExpenseList({ expenses }) {
+  if (expenses.length === 0) return <p>No Expenses yet.</p>;
 
   return (
     <ul className='expense-list'>
-      {props.expenses.map((expense) => {
+      {expenses.map((expense) => {
         const formattedDate = new Date(expense.date).toLocaleDateString(
           'en-US',
           {
