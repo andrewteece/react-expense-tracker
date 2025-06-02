@@ -31,7 +31,7 @@ function App() {
     <div className='tracker'>
       <h1>React Expense Tracker</h1>
       <ExpenseForm />
-      <ExpenseList />
+      <ExpenseList expenses={expenses} />
     </div>
   );
 }
