@@ -14,7 +14,7 @@ type ExpenseFormProps = {
 
 const ExpenseForm: React.FC<ExpenseFormProps> = ({ onAddExpense }) => {
   const [title, setTitle] = useState<string>('');
-  const [amount, setAmount] = useState<string>('');
+  const [amount, setAmount] = useState<number>(0);
   const [date, setDate] = useState<string>('');
 
   // Submit handler with properly typed event
@@ -22,15 +22,17 @@ const ExpenseForm: React.FC<ExpenseFormProps> = ({ onAddExpense }) => {
     e.preventDefault();
     if (!title || !amount || !date) return;
 
+    console.log(typeof amount, amount);
+
     onAddExpense({
       title,
-      amount: parseFloat(amount),
+      amount,
       date,
     });
 
     // Reset the form
     setTitle('');
-    setAmount('');
+    setAmount(0);
     setDate('');
   };
 
@@ -49,8 +51,9 @@ const ExpenseForm: React.FC<ExpenseFormProps> = ({ onAddExpense }) => {
         value={amount}
         placeholder='Amount'
         min={0}
+        step='0.01'
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          setAmount(e.target.value)
+          setAmount(Number(e.target.value))
         }
       />
       <input

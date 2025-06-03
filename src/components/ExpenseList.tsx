@@ -1,4 +1,17 @@
-function ExpenseList({ expenses }) {
+type Expense = {
+  id: number;
+  title: string;
+  amount: number;
+  date: string; // or Date if you're storing actual Date objects
+};
+
+// 2. Define the props type
+type ExpenseListProps = {
+  expenses: Expense[];
+};
+
+// 3. Apply the prop type to the component
+function ExpenseList({ expenses }: ExpenseListProps) {
   if (expenses.length === 0) return <p>No Expenses yet.</p>;
 
   return (
