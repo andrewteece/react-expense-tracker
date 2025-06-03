@@ -5,13 +5,14 @@ type Expense = {
   date: string; // or Date if you're storing actual Date objects
 };
 
-// 2. Define the props type
+// Define the props type
 type ExpenseListProps = {
   expenses: Expense[];
+  onDelete: (id: number) => void;
 };
 
-// 3. Apply the prop type to the component
-function ExpenseList({ expenses }: ExpenseListProps) {
+// Apply the prop type to the component
+function ExpenseList({ expenses, onDelete }: ExpenseListProps) {
   if (expenses.length === 0) return <p>No Expenses yet.</p>;
 
   return (
@@ -34,7 +35,9 @@ function ExpenseList({ expenses }: ExpenseListProps) {
                 ${expense.amount.toFixed(2)} — {formattedDate}
               </p>
             </div>
-            <button>🗑️</button>
+            <button className='delete-btn' onClick={() => onDelete(expense.id)}>
+              🗑️
+            </button>
           </li>
         );
       })}

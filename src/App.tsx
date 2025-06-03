@@ -37,11 +37,17 @@ function App() {
     ]);
   }
 
+  function handleDelete(id) {
+    setExpenses((prevExpenses) =>
+      prevExpenses.filter((expense) => expense.id !== id)
+    );
+  }
+
   return (
     <div className='tracker'>
       <h1>React Expense Tracker</h1>
       <ExpenseForm onAddExpense={handleAddExpense} />
-      <ExpenseList expenses={expenses} />
+      <ExpenseList expenses={expenses} onDelete={handleDelete} />
     </div>
   );
 }
