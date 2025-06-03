@@ -22,7 +22,7 @@ const ExpenseForm: React.FC<ExpenseFormProps> = ({ onAddExpense }) => {
     e.preventDefault();
     if (!title || !amount || !date) return;
 
-    console.log(typeof amount, amount);
+    // console.log(typeof amount, amount);
 
     onAddExpense({
       title,
