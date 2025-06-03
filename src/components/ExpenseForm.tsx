@@ -2,13 +2,14 @@ import { useState } from 'react';
 
 function ExpenseForm({ onAddExpense }) {
   const [title, setTitle] = useState('');
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState('');
   const [date, setDate] = useState('');
 
   function handleSubmit(e) {
     e.preventDefault();
     if (!title || !amount || !date) return;
     onAddExpense({ title, amount: parseFloat(amount), date });
+
     setTitle('');
     setAmount('');
     setDate('');
@@ -27,7 +28,7 @@ function ExpenseForm({ onAddExpense }) {
         min={0}
         placeholder='Amount'
         value={amount}
-        onChange={(e) => setAmount(Number(e.target.value))}
+        onChange={(e) => setAmount(e.target.value)}
       />
       <input
         type='date'
