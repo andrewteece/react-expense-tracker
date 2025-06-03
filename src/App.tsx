@@ -27,7 +27,7 @@ const initialExpenses = [
 function App() {
   const [expenses, setExpenses] = useState(initialExpenses);
 
-  function addExpense(expense) {
+  function handleAddExpense(expense) {
     setExpenses((prevExpenses) => [
       {
         ...expense,
@@ -40,7 +40,7 @@ function App() {
   return (
     <div className='tracker'>
       <h1>React Expense Tracker</h1>
-      <ExpenseForm onAddExpense={addExpense} />
+      <ExpenseForm onAddExpense={handleAddExpense} />
       <ExpenseList expenses={expenses} />
     </div>
   );

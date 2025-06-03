@@ -1,14 +1,17 @@
 import { useState } from 'react';
 
-function ExpenseForm(onAddExpense) {
+function ExpenseForm({ onAddExpense }) {
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState(0);
   const [date, setDate] = useState('');
 
   function handleSubmit(e) {
-    e.preventDefualt();
+    e.preventDefault();
     if (!title || !amount || !date) return;
     onAddExpense({ title, amount: parseFloat(amount), date });
+    setTitle('');
+    setAmount('');
+    setDate('');
   }
 
   return (
