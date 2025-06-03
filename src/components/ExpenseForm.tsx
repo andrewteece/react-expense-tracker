@@ -1,43 +1,68 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-function ExpenseForm({ onAddExpense }) {
-  const [title, setTitle] = useState('');
-  const [amount, setAmount] = useState('');
-  const [date, setDate] = useState('');
+// Define the shape of the expense object
+type Expense = {
+  title: string;
+  amount: number;
+  date: string;
+};
 
-  function handleSubmit(e) {
+// Define the props for ExpenseForm
+type ExpenseFormProps = {
+  onAddExpense: (expense: Expense) => void;
+};
+
+const ExpenseForm: React.FC<ExpenseFormProps> = ({ onAddExpense }) => {
+  const [title, setTitle] = useState<string>('');
+  const [amount, setAmount] = useState<string>('');
+  const [date, setDate] = useState<string>('');
+
+  // Submit handler with properly typed event
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!title || !amount || !date) return;
-    onAddExpense({ title, amount: parseFloat(amount), date });
 
+    onAddExpense({
+      title,
+      amount: parseFloat(amount),
+      date,
+    });
+
+    // Reset the form
     setTitle('');
     setAmount('');
     setDate('');
-  }
+  };
 
   return (
-    <form className='expense-form' onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='expense-form'>
       <input
         type='text'
-        placeholder='Expense Title'
         value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        placeholder='Title'
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setTitle(e.target.value)
+        }
       />
       <input
         type='number'
-        min={0}
-        placeholder='Amount'
         value={amount}
-        onChange={(e) => setAmount(e.target.value)}
+        placeholder='Amount'
+        min={0}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setAmount(e.target.value)
+        }
       />
       <input
         type='date'
         value={date}
-        onChange={(e) => setDate(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setDate(e.target.value)
+        }
       />
-      <button>Add Expense</button>
+      <button type='submit'>Add Expense</button>
     </form>
   );
-}
+};
 
 export default ExpenseForm;

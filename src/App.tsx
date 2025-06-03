@@ -3,7 +3,7 @@ import ExpenseList from './components/ExpenseList';
 import './App.css';
 import { useState } from 'react';
 
-const initialExpenses = [
+const initialExpenses: Expense[] = [
   {
     id: 1,
     title: 'Groceries',
@@ -25,9 +25,9 @@ const initialExpenses = [
 ];
 
 function App() {
-  const [expenses, setExpenses] = useState(initialExpenses);
+  const [expenses, setExpenses] = useState<Expense[]>(initialExpenses);
 
-  function handleAddExpense(expense) {
+  function handleAddExpense(expense: Expense) {
     setExpenses((prevExpenses) => [
       {
         ...expense,
