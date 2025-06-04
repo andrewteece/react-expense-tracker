@@ -17,7 +17,7 @@
 ### Links
 
 - Solution URL: [https://github.com/andrewteece/react-expense-tracker](https://github.com/andrewteece/react-expense-tracker)
-- Live Site URL: [https://amazing-phoenix-1c849f.netlify.app/](https://amazing-phoenix-1c849f.netlify.app/)
+- Live Site URL: [https://starlit-semolina-bc0614.netlify.app/](https://starlit-semolina-bc0614.netlify.app/)
 
 ## Author
 
