@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
+import type { Expense } from '../types/Expense';
 
 // Define the shape of the expense object
-type Expense = {
-  title: string;
-  amount: number;
-  date: string;
-};
+// type Expense = {
+//   title: string;
+//   amount: number;
+//   date: string;
+// };
 
 // Define the props for ExpenseForm
 type ExpenseFormProps = {
-  onAddExpense: (expense: Expense) => void;
+  onAddExpense: (expense: Omit<Expense, 'id'>) => void;
 };
 
 const ExpenseForm: React.FC<ExpenseFormProps> = ({ onAddExpense }) => {

@@ -2,13 +2,7 @@ import ExpenseForm from './components/ExpenseForm';
 import ExpenseList from './components/ExpenseList';
 import './App.css';
 import { useState } from 'react';
-
-type Expense = {
-  id: number;
-  title: string;
-  amount: number;
-  date: string;
-};
+import type { Expense } from './types/Expense';
 
 const initialExpenses: Expense[] = [
   {
@@ -34,7 +28,7 @@ const initialExpenses: Expense[] = [
 function App() {
   const [expenses, setExpenses] = useState<Expense[]>(initialExpenses);
 
-  function handleAddExpense(expense: Expense) {
+  function handleAddExpense(expense: Omit<Expense, 'id'>) {
     setExpenses((prevExpenses) => [
       {
         ...expense,
