@@ -37,7 +37,7 @@ function App() {
     ]);
   }
 
-  function handleDelete(id) {
+  function handleDelete(id: number) {
     setExpenses((prevExpenses) =>
       prevExpenses.filter((expense) => expense.id !== id)
     );
