@@ -3,6 +3,13 @@ import ExpenseList from './components/ExpenseList';
 import './App.css';
 import { useState } from 'react';
 
+type Expense = {
+  id: number;
+  title: string;
+  amount: number;
+  date: string;
+};
+
 const initialExpenses: Expense[] = [
   {
     id: 1,
